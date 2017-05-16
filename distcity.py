@@ -16,7 +16,7 @@ def hav (lat, lng, lat1, lng1):
 serviceurl = 'http://maps.googleapis.com/maps/api/geocode/json?'
 
 
-address = raw_input('Enter location 1: ')
+address = raw_input('Enter location 1:')
 if len(address) < 1:
 	print 'address will be defaulted to Washington DC'
 	address = 'washington dc'
