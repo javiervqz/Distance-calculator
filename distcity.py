@@ -38,7 +38,7 @@ js = json.loads(opn)
 if 'status' not in js or js['status'] != 'OK':
 	print 'failed'
 	print opn
-
+#now just testing git hub
 opn1 = urllib.urlopen(url1).read()
 js1 = json.loads(opn1)
 
