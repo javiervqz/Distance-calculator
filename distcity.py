@@ -11,7 +11,7 @@ def hav (lat, lng, lat1, lng1):
 	h = math.sin((la1-la)/2.0)**2 + math.cos(la)*math.cos(la1)*math.sin((lo1-lo)/2.0)**2
 	d = 2*r*math.asin(math.sqrt(h))
 	return d
-	
+
 
 serviceurl = 'http://maps.googleapis.com/maps/api/geocode/json?'
 
@@ -25,10 +25,10 @@ address1 = raw_input('Enter location 2: ')
 if len(address1)<1:
 	print 'address will be defaulted to Chihuahua, Chihuahua\n'
 	address1 = 'Chihuahua, chihuahua'
-	
-	
+
+
 url = serviceurl + urllib.urlencode({'sensor':'false', 'address':address}) #urlenconde uses the parameters (sensor and address) so it can be put in a correct url. I.E Chihuahua, chihuahua -> chihuahua%2C+Chihuahua
-url1 = serviceurl + urllib.urlencode({'sensor':'false', 'address':address1}) 
+url1 = serviceurl + urllib.urlencode({'sensor':'false', 'address':address1})
 
 print url, '\n',  url1, '\n'
 
@@ -41,18 +41,17 @@ if 'status' not in js or js['status'] != 'OK':
 
 opn1 = urllib.urlopen(url1).read()
 js1 = json.loads(opn1)
-	
-print opn1
+
 if 'status' not in js1 or js1['status'] != 'OK':
 	print 'failed'
 	print opn1
 
-lng = js['results'][0]['geometry']['location']['lng']	
-lat = js['results'][0]['geometry']['location']['lat']	
+lng = js['results'][0]['geometry']['location']['lng']
+lat = js['results'][0]['geometry']['location']['lat']
 loc1 = js['results'][0]['formatted_address']
 
-lng1 = js1['results'][0]['geometry']['location']['lng']	
-lat1 = js1['results'][0]['geometry']['location']['lat']	
+lng1 = js1['results'][0]['geometry']['location']['lng']
+lat1 = js1['results'][0]['geometry']['location']['lat']
 loc2 = js1['results'][0]['formatted_address']
 
 print 'For', loc1, 'Latitude', lat,'Longitude', lng, '\n'
